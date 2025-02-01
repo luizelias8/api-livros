@@ -21,3 +21,8 @@ def carregar_dados(chave):
 def listar_livros():
     livros = carregar_dados('livros')
     return livros
+
+@app.get('/autores')
+def listar_autores():
+    autores = carregar_dados('autores')
+    return autores

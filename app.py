@@ -31,3 +31,8 @@ def listar_autores():
 def listar_categorias():
     categorias = carregar_dados('categorias')
     return categorias
+
+@app.get('/pedidos')
+def listar_pedidos():
+    pedidos = carregar_dados('pedidos')
+    return pedidos

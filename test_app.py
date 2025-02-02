@@ -3,6 +3,10 @@ from app import app
 
 cliente = TestClient(app)
 
+def test_rota_raiz():
+    resposta = cliente.get('/')
+    assert resposta.status_code == 200
+
 def test_rota_livros():
     resposta = cliente.get('/livros')
     assert resposta.status_code == 200

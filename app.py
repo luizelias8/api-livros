@@ -17,6 +17,11 @@ def carregar_dados(chave):
     except json.JSONDecodeError:
         return {'erro': 'Erro ao decodificar o arquivo JSON'}
 
+# Rota de verificação de status
+@app.get('/')
+def verificar_status():
+    return {'status': 'ok', 'mensagem': 'API funcionando!'}
+
 @app.get('/livros')
 def listar_livros():
     livros = carregar_dados('livros')

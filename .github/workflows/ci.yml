@@ -24,22 +24,8 @@ jobs:
       - name: Instalar dependências
         run: |
           python -m pip install --upgrade pip
-          pip install fastapi uvicorn
+          pip install fastapi pytest pytest-asyncio httpx
 
-      - name: Criar arquivo dados.json de teste
+      - name: Executar testes
         run: |
-          echo '{
-            "livros": [
-              {"id": 1, "titulo": "Teste"}
-            ],
-            "autores": [
-              {"id": 1, "nome": "Autor Teste"}
-            ]
-          }' > dados.json
-
-      - name: Testar se a API responde corretamente
-        run: |
-          nohup uvicorn app:app --host 0.0.0.0 --port 8000 &
-          sleep 5  # Aguarda o servidor iniciar
-          curl --fail http://127.0.0.1:8000/livros
-          curl --fail http://127.0.0.1:8000/autores
+          pytest test_app.py

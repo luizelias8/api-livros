@@ -27,7 +27,7 @@ jobs:
 
       - name: Testar se a API responde corretamente
         run: |
-          nohup uvicorn main:app --host 0.0.0.0 --port 8000 & 
+          nohup uvicorn app:app --host 0.0.0.0 --port 8000 &
           sleep 5  # Aguarda o servidor iniciar
           curl --fail http://127.0.0.1:8000/livros  # Testa a rota /livros
           curl --fail http://127.0.0.1:8000/autores  # Testa a rota /autores

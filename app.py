@@ -26,3 +26,8 @@ def listar_livros():
 def listar_autores():
     autores = carregar_dados('autores')
     return autores
+
+@app.get('/categorias')
+def listar_categorias():
+    categorias = carregar_dados('categorias')
+    return categorias
